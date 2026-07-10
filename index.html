@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAM CNC SOLUTIONS</title>
     <style>
-        /* Общие стили */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -18,7 +17,6 @@
             color: #fff;
         }
 
-        /* Шапка сайта */
         header {
             display: flex;
             justify-content: space-between;
@@ -29,21 +27,24 @@
             z-index: 102;
         }
 
-        /* Логотип */
+        /* Обрезка белых полей логотипа */
         .logo-container {
             display: flex;
-            flex-direction: column;
+            width: 200px;  /* Ширина видимой области */
+            height: 50px;  /* Высота видимой области */
+            overflow: hidden; /* Прячем огромный белый холст вокруг */
+            position: relative;
         }
 
         .logo-img {
+            position: absolute;
+            width: 800px; /* Масштабируем исходный гигантский файл */
             height: auto;
-            width: 240px;
+            top: -340px;  /* Сдвигаем вверх, чтобы поймать синий центр */
+            left: -300px; /* Сдвигаем влево, чтобы отцентровать синий центр */
             display: block;
-            /* Инвертируем цвета: белый фон картинки станет черным и исчезнет на черном сайте */
-            filter: invert(1); 
         }
 
-        /* Меню для ПК */
         .nav-desktop {
             display: flex;
             gap: 30px;
@@ -62,7 +63,6 @@
             color: #4d4dff;
         }
 
-        /* Кнопка Бургера */
         .burger-menu {
             display: none;
             cursor: pointer;
@@ -81,7 +81,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Анимация бургера в крестик */
         .burger-menu.open span:nth-child(1) {
             transform: translateY(9px) rotate(45deg);
         }
@@ -92,7 +91,6 @@
             transform: translateY(-9px) rotate(-45deg);
         }
 
-        /* Полноэкранное мобильное меню (Черный фон) */
         .nav-mobile {
             position: fixed;
             top: -100%;
@@ -125,13 +123,11 @@
             color: #4d4dff;
         }
 
-        /* Контент страницы */
         .hero-section {
             padding: 100px 40px;
             text-align: center;
         }
 
-        /* АДАПТИВНОСТЬ */
         @media (max-width: 768px) {
             .nav-desktop {
                 display: none;
