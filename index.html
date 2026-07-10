@@ -27,17 +27,21 @@
             z-index: 102;
         }
 
-        /* Контейнер для четкого встроенного логотипа */
+        /* Контейнер для оригинального логотипа */
         .logo-container {
             display: flex;
             align-items: center;
-            width: 260px; /* Фиксированная ширина как на макете */
+            width: 280px; /* Оптимальная ширина под пропорции оригинала */
             height: auto;
+            background-color: #fff; /* Создаем белую подложку ТОЛЬКО под размеры самого логотипа */
+            padding: 5px;
+            border-radius: 4px;
         }
 
-        .logo-container svg {
+        .logo-img {
             width: 100%;
             height: auto;
+            display: block;
         }
 
         .nav-desktop {
@@ -142,18 +146,7 @@
 
     <header>
         <div class="logo-container">
-            <svg viewBox="0 0 330 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="52" y="2" width="270" height="46" fill="#4d4dff"/>
-                <text x="66" y="31" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="19" font-weight="bold" letter-spacing="1">CAM CNC SOLUTIONS</text>
-                
-                <rect x="2" y="2" width="46" height="46" stroke="#4d4dff" stroke-width="3"/>
-                <path d="M10 38 L10 18 L24 18 L24 28 L40 28 L40 38 Z" fill="none" stroke="#4d4dff" stroke-width="2.5"/>
-                <circle cx="17" cy="25" r="2" fill="#4d4dff"/>
-                <line x1="28" y1="18" x2="36" y2="18" stroke="#4d4dff" stroke-width="2.5"/>
-                <line x1="10" y1="33" x2="40" y2="33" stroke="#4d4dff" stroke-width="1"/>
-                
-                <text x="56" y="68" fill="#4d4dff" font-family="'Segoe UI', sans-serif" font-size="12.5" font-weight="600" letter-spacing="0.3">Экспертные решения для станков с ЧПУ</text>
-            </svg>
+            <img src="logo_white_back.svg" alt="CAM CNC SOLUTIONS" class="logo-img">
         </div>
 
         <nav class="nav-desktop">
