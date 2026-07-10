@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAM CNC Solutions — Экспертные решения для станков с ЧПУ</title>
+    <title>CAM CNC SOLUTIONS</title>
     <style>
+        /* Общие стили */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -12,194 +13,179 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        body, html {
-            height: 100%;
-            overflow-x: hidden;
+        body {
+            background-color: #000;
+            color: #fff;
         }
 
-        .container {
+        /* Шапка сайта */
+        header {
             display: flex;
-            min-height: 100vh;
-            width: 100vw;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #000;
+            position: relative;
+            z-index: 100;
         }
 
-        /* Левая черная панель */
-        .left-panel {
-            background-color: #000000;
-            width: 50%;
+        /* Логотип */
+        .logo-container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
         }
 
-        .logo-box {
+        .logo-img {
+            height: 50px; /* Высота логотипа, можно настроить */
+            width: auto;
+        }
+
+        /* Меню для ПК (по умолчанию видно) */
+        .nav-desktop {
             display: flex;
-            align-items: center;
-            border: 2px solid #3b4cca;
-            background-color: #000000;
-            margin-bottom: 15px;
+            gap: 30px;
         }
 
-        .logo-icon {
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Временная ЧПУ-иконка на чистом CSS, пока нет картинки */
-        .cnc-icon {
-            width: 40px;
-            height: 40px;
-            border: 2px solid #3b4cca;
-            position: relative;
-            border-radius: 4px;
-        }
-        .cnc-icon::before {
-            content: '';
-            position: absolute;
-            top: 25%; left: 25%;
-            width: 12px; height: 12px;
-            border: 2px solid #3b4cca;
-            border-radius: 50%;
-        }
-
-        .logo-text {
-            background-color: #3b4cca;
-            color: #000000;
-            font-weight: 800;
-            font-size: 24px;
-            letter-spacing: 2px;
-            padding: 20px 30px;
-            text-transform: uppercase;
-        }
-
-        .subtitle {
-            color: #3b4cca;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        /* Правая синяя панель */
-        .right-panel {
-            background-color: #1125b3;
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-            padding: 40px;
-            position: relative;
-        }
-
-        /* Навигация */
-        .nav-menu {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            color: #ffffff;
+        .nav-desktop a {
+            color: #fff;
             text-decoration: none;
-            font-size: 15px;
-            font-weight: bold;
-            letter-spacing: 1px;
             text-transform: uppercase;
-            transition: opacity 0.2s;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
         }
 
-        .nav-menu a:hover {
-            opacity: 0.8;
+        .nav-desktop a:hover {
+            color: #4d4dff; /* Цвет при наведении (под цвет логотипа) */
         }
 
-        /* Контентная часть справа */
-        .right-content {
-            flex-grow: 1;
+        /* Кнопка Бургера (по умолчанию скрыта) */
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 101;
+        }
+
+        .burger-menu span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        /* Стили анимации бургера в крестик */
+        .burger-menu.open span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .burger-menu.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .burger-menu.open span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Полноэкранное мобильное меню (скрыто сверху) */
+        .nav-mobile {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 40px;
+            transition: top 0.4s ease;
+            z-index: 99;
+        }
+
+        .nav-mobile.open {
+            top: 0;
+        }
+
+        .nav-mobile a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 36px; /* Большой шрифт как на макете */
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-mobile a:hover {
+            color: #4d4dff;
+        }
+
+        /* Контент страницы (пример) */
+        .hero-section {
+            padding: 100px 40px;
             text-align: center;
-            color: #ffffff;
-            max-width: 600px;
-            margin: 0 auto;
-            padding-bottom: 60px; /* баланс из-за меню сверху */
         }
 
-        .right-content p {
-            font-size: 22px;
-            line-height: 1.6;
-            margin-bottom: 45px;
-            font-weight: 400;
-        }
+        /* АДАПТИВНОСТЬ: Экраны меньше 768px (планшеты и телефоны) */
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none; /* Прячем обычное меню */
+            }
 
-        .right-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Адаптивность под мобильные экраны */
-        @media (max-width: 900px) {
-            .container {
-                flex-direction: column;
-            }
-            .left-panel, .right-panel {
-                width: 100%;
-                min-height: 50vh;
-                padding: 40px 20px;
-            }
-            .nav-menu {
-                margin-bottom: 40px;
-            }
-            .right-content {
-                padding-bottom: 0;
-            }
-            .right-content p {
-                font-size: 18px;
-                margin-bottom: 30px;
+            .burger-menu {
+                display: flex; /* Показываем бургер */
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Левая сторона -->
-        <div class="left-panel">
-            <div class="logo-box">
-                <div class="logo-icon">
-                    <!-- Простая замена иконки, позже сюда можно вставить ваш SVG/PNG -->
-                    <div class="cnc-icon"></div>
-                </div>
-                <div class="logo-text">CAM CNC Solutions</div>
-            </div>
-            <div class="subtitle">Экспертные решения для станков с ЧПУ</div>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="CAM CNC SOLUTIONS" class="logo-img">
         </div>
 
-        <!-- Правая сторона -->
-        <div class="right-panel">
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#cases">Кейсы</a></li>
-                    <li><a href="#contacts">Контакты</a></li>
-                </ul>
-            </nav>
-            
-            <div class="right-content">
-                <p>Инженерный консалтинг для производств с металлообработкой на станках с ЧПУ.</p>
-                <p>Когда оборудование есть, заказы есть, а маржа и управляемость “утекают”</p>
-                <p>Для владельцев и руководителей производств с мехобработкой с ЧПУ</p>
-            </div>
-        </div>
-    </div>
+        <nav class="nav-desktop">
+            <a href="#about">О компании</a>
+            <a href="#services">Услуги</a>
+            <a href="#cases">Кейсы</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+
+        <button class="burger-menu" id="burgerBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <nav class="nav-mobile" id="mobileMenu">
+        <a href="#about" onclick="toggleMenu()">О компании</a>
+        <a href="#services" onclick="toggleMenu()">Услуги</a>
+        <a href="#cases" onclick="toggleMenu()">Кейсы</a>
+        <a href="#contacts" onclick="toggleMenu()">Контакты</a>
+    </nav>
+
+    <main class="hero-section">
+        <h1>Инженерный консалтинг для производств</h1>
+        <p>Экспертные решения для станков с ЧПУ.</p>
+    </main>
+
+    <script>
+        const burgerBtn = document.getElementById('burgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        function toggleMenu() {
+            burgerBtn.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+            // Запрещаем прокрутку сайта при открытом меню
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+        }
+
+        burgerBtn.addEventListener('click', toggleMenu);
+    </script>
 
 </body>
 </html>
