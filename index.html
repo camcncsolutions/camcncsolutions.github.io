@@ -26,10 +26,10 @@
             padding: 20px 40px;
             background-color: #000;
             position: relative;
-            z-index: 102; /* Шапка всегда выше мобильного меню */
+            z-index: 102;
         }
 
-        /* Убираем белый фон у логотипа через инверсию цвета и смешивание */
+        /* Логотип */
         .logo-container {
             display: flex;
             flex-direction: column;
@@ -37,10 +37,10 @@
 
         .logo-img {
             height: auto;
-            width: 240px; /* Фиксированная ширина */
+            width: 240px;
             display: block;
-            mix-blend-mode: screen; /* Магия CSS: убирает черный фон, оставляет светлый. 
-                                      Если картинка инвертирована, это уберет белый цвет подложки */
+            /* Инвертируем цвета: белый фон картинки станет черным и исчезнет на черном сайте */
+            filter: invert(1); 
         }
 
         /* Меню для ПК */
@@ -70,7 +70,7 @@
             border: none;
             flex-direction: column;
             gap: 6px;
-            z-index: 103; /* Поверх мобильного меню, чтобы закрыть его */
+            z-index: 103;
         }
 
         .burger-menu span {
@@ -99,7 +99,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #000; /* Черный фон */
+            background-color: #000;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -131,7 +131,7 @@
             text-align: center;
         }
 
-        /* АДАПТИВНОСТЬ: Экраны меньше 768px */
+        /* АДАПТИВНОСТЬ */
         @media (max-width: 768px) {
             .nav-desktop {
                 display: none;
