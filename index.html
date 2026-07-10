@@ -26,21 +26,24 @@
             padding: 20px 40px;
             background-color: #000;
             position: relative;
-            z-index: 100;
+            z-index: 102; /* Шапка всегда выше мобильного меню */
         }
 
-        /* Логотип */
+        /* Убираем белый фон у логотипа через инверсию цвета и смешивание */
         .logo-container {
             display: flex;
             flex-direction: column;
         }
 
         .logo-img {
-            height: 50px; /* Высота логотипа, можно настроить */
-            width: auto;
+            height: auto;
+            width: 240px; /* Фиксированная ширина */
+            display: block;
+            mix-blend-mode: screen; /* Магия CSS: убирает черный фон, оставляет светлый. 
+                                      Если картинка инвертирована, это уберет белый цвет подложки */
         }
 
-        /* Меню для ПК (по умолчанию видно) */
+        /* Меню для ПК */
         .nav-desktop {
             display: flex;
             gap: 30px;
@@ -56,10 +59,10 @@
         }
 
         .nav-desktop a:hover {
-            color: #4d4dff; /* Цвет при наведении (под цвет логотипа) */
+            color: #4d4dff;
         }
 
-        /* Кнопка Бургера (по умолчанию скрыта) */
+        /* Кнопка Бургера */
         .burger-menu {
             display: none;
             cursor: pointer;
@@ -67,7 +70,7 @@
             border: none;
             flex-direction: column;
             gap: 6px;
-            z-index: 101;
+            z-index: 103; /* Поверх мобильного меню, чтобы закрыть его */
         }
 
         .burger-menu span {
@@ -78,7 +81,7 @@
             transition: all 0.3s ease;
         }
 
-        /* Стили анимации бургера в крестик */
+        /* Анимация бургера в крестик */
         .burger-menu.open span:nth-child(1) {
             transform: translateY(9px) rotate(45deg);
         }
@@ -89,21 +92,21 @@
             transform: translateY(-9px) rotate(-45deg);
         }
 
-        /* Полноэкранное мобильное меню (скрыто сверху) */
+        /* Полноэкранное мобильное меню (Черный фон) */
         .nav-mobile {
             position: fixed;
             top: -100%;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #000;
+            background-color: #000; /* Черный фон */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 40px;
             transition: top 0.4s ease;
-            z-index: 99;
+            z-index: 101;
         }
 
         .nav-mobile.open {
@@ -113,7 +116,7 @@
         .nav-mobile a {
             color: #fff;
             text-decoration: none;
-            font-size: 36px; /* Большой шрифт как на макете */
+            font-size: 32px;
             font-weight: 500;
             transition: color 0.3s;
         }
@@ -122,28 +125,29 @@
             color: #4d4dff;
         }
 
-        /* Контент страницы (пример) */
+        /* Контент страницы */
         .hero-section {
             padding: 100px 40px;
             text-align: center;
         }
 
-       }
-    }
+        /* АДАПТИВНОСТЬ: Экраны меньше 768px */
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none;
+            }
 
-    /* Специальные стили для твоего длинного логотипа */
-    .logo-img {
-        height: auto;
-        width: 250px; /* Идеальная ширина для текста под логотипом */
-        display: block;
-    }
-</style>
+            .burger-menu {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header>
         <div class="logo-container">
-            <img src="logo_without_background.svg" alt="CAM CNC SOLUTIONS" class="logo-img">
+            <img src="logo_white_back.svg" alt="CAM CNC SOLUTIONS" class="logo-img">
         </div>
 
         <nav class="nav-desktop">
@@ -153,32 +157,6 @@
             <a href="#contacts">Контакты</a>
         </nav>
 
-        <button class="burger-menu" id="burgerBtn">}
-    }
-
-    /* Специальные стили для твоего длинного логотипа */
-    .logo-img {
-        height: auto;
-        width: 250px; /* Идеальная ширина для текста под логотипом */
-        display: block;
-    }
-</style>
-</head>
-<body>
-
-    <header>
-        <div class="logo-container">
-            <img src="logo_without_background.svg" alt="CAM CNC SOLUTIONS" class="logo-img">
-        </div>
-
-        <nav class="nav-desktop">
-            <a href="#about">О компании</a>
-            <a href="#services">Услуги</a>
-            <a href="#cases">Кейсы</a>
-            <a href="#contacts">Контакты</a>
-        </nav>
-
-        <button class="burger-menu" id="burgerBtn">
         <button class="burger-menu" id="burgerBtn">
             <span></span>
             <span></span>
@@ -205,7 +183,6 @@
         function toggleMenu() {
             burgerBtn.classList.toggle('open');
             mobileMenu.classList.toggle('open');
-            // Запрещаем прокрутку сайта при открытом меню
             document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
         }
 
