@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="5-осевая обработка: как думать о кинематике, ориентации инструмента, коллизиях и безопасной проверке.">
+  <title>Как думать о 5-axis без лишних рисков | CAM CNC Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Перейти к содержанию</a>
+  <div class="site-shell">
+    <header class="site-header" data-header>
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Максим. CAM CNC Solutions">
+          <img src="/logo_white_back.svg" alt="CAM CNC Solutions" class="brand-logo">
+        </a>
+        <nav class="nav-desktop" aria-label="Основная навигация">
+          <a href="/">Главная</a>
+          <a href="/services/">Услуги</a>
+          <a href="/cases/">Кейсы</a>
+          <a href="/knowledge/" aria-current="page">База знаний</a>
+          <a href="/about/">Обо мне</a>
+          <a href="/contacts/">Контакты</a>
+        </nav>
+        <a class="btn btn-secondary header-cta" href="/contacts/">Обсудить задачу</a>
+        <button class="menu-button" type="button" data-menu-button aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="nav-mobile" id="mobileMenu" data-mobile-menu aria-label="Мобильная навигация">
+        <a href="/">Главная</a>
+        <a href="/services/">Услуги</a>
+        <a href="/cases/">Кейсы</a>
+        <a href="/knowledge/" aria-current="page">База знаний</a>
+        <a href="/about/">Обо мне</a>
+        <a href="/contacts/">Контакты</a>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section class="page-hero">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="/">Главная</a><span>/</span><a href="/knowledge/">База знаний</a><span>/</span><span>5-axis</span>
+          </div>
+          <p class="eyebrow">Статья</p>
+          <h1 class="page-title">Как думать о 5-axis без лишних рисков</h1>
+          <p class="page-intro">
+            В 5-осевой обработке цена ошибки выше, чем в обычной траектории. Поэтому мышление должно начинаться не с красивой поверхности, а с управления риском.
+          </p>
+          <div class="page-meta">
+            <span class="tag tag-accent">5-axis</span>
+            <span class="tag">Кинематика</span>
+            <span class="tag">Коллизии</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft">
+        <div class="container page-layout">
+          <article class="prose-panel reveal" data-reveal>
+            <div class="prose">
+              <h2>С чего начинать</h2>
+              <p>Начинать нужно с ответа на три вопроса: где есть доступ к поверхности, как движется инструмент и что может столкнуться в процессе. Только после этого имеет смысл строить траекторию.</p>
+
+              <h2>Что обязательно контролировать</h2>
+              <ul>
+                <li>Ориентации инструмента.</li>
+                <li>Границы поворота осей.</li>
+                <li>Поведение на переходах.</li>
+                <li>Взаимодействие с держателем и оснасткой.</li>
+              </ul>
+
+              <h2>Проверочный подход</h2>
+              <p>Каждая траектория должна проходить через осмысленную проверку: видимость доступа, безопасность перемещений, корректность ориентаций и понимание, как эта логика ляжет на конкретный станок.</p>
+
+              <h2>Зачем это бизнесу</h2>
+              <p>Если 5-axis настроен правильно, сложная деталь перестает быть исключением. Она становится повторяемой производственной задачей, которую можно планировать и масштабировать.</p>
+            </div>
+          </article>
+
+          <aside class="page-sidebar">
+            <div class="card">
+              <h3>Связанные страницы</h3>
+              <div class="toc">
+                <a href="/services/five-axis.html">Услуга по 5-осевой обработке</a>
+                <a href="/cases/case-five-axis.html">Кейс 5-axis</a>
+              </div>
+            </div>
+            <div class="callout">
+              <p>Для 5-осевой обработки особенно важна дисциплина проверки, а не вера в то, что «траектория выглядит нормально».</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>CAM CNC Solutions / Максим</p>
+        <p>Независимый инженер-консультант по цифровому производству. <span data-year></span></p>
+      </div>
+    </footer>
+  </div>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

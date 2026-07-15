@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Постпроцессор: что он должен делать, как проверять логику вывода и где возникают типовые ошибки.">
+  <title>Постпроцессор: что он должен делать | CAM CNC Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Перейти к содержанию</a>
+  <div class="site-shell">
+    <header class="site-header" data-header>
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Максим. CAM CNC Solutions">
+          <img src="/logo_white_back.svg" alt="CAM CNC Solutions" class="brand-logo">
+        </a>
+        <nav class="nav-desktop" aria-label="Основная навигация">
+          <a href="/">Главная</a>
+          <a href="/services/">Услуги</a>
+          <a href="/cases/">Кейсы</a>
+          <a href="/knowledge/" aria-current="page">База знаний</a>
+          <a href="/about/">Обо мне</a>
+          <a href="/contacts/">Контакты</a>
+        </nav>
+        <a class="btn btn-secondary header-cta" href="/contacts/">Обсудить задачу</a>
+        <button class="menu-button" type="button" data-menu-button aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="nav-mobile" id="mobileMenu" data-mobile-menu aria-label="Мобильная навигация">
+        <a href="/">Главная</a>
+        <a href="/services/">Услуги</a>
+        <a href="/cases/">Кейсы</a>
+        <a href="/knowledge/" aria-current="page">База знаний</a>
+        <a href="/about/">Обо мне</a>
+        <a href="/contacts/">Контакты</a>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section class="page-hero">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="/">Главная</a><span>/</span><a href="/knowledge/">База знаний</a><span>/</span><span>Постпроцессоры</span>
+          </div>
+          <p class="eyebrow">Статья</p>
+          <h1 class="page-title">Постпроцессор: что он должен делать</h1>
+          <p class="page-intro">
+            Постпроцессор - это точка, где CAM-логика превращается в язык конкретного оборудования. Ошибка здесь чаще всего не видна на экране, но очень хорошо заметна на станке.
+          </p>
+          <div class="page-meta">
+            <span class="tag tag-accent">Постпроцессор</span>
+            <span class="tag">G-code</span>
+            <span class="tag">Проверка</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft">
+        <div class="container page-layout">
+          <article class="prose-panel reveal" data-reveal>
+            <div class="prose">
+              <h2>Что должен делать постпроцессор</h2>
+              <p>Он должен переводить операции CAM в код, который соответствует логике станка, стойки и внутренним правилам производства. Это включает перемещения, смену инструмента, безопасные переходы и структуру программы.</p>
+
+              <h2>Типовые ошибки</h2>
+              <ul>
+                <li>Код не совпадает с реальной последовательностью.</li>
+                <li>Переходы выглядят безопасно на экране, но неудобны на станке.</li>
+                <li>Не объяснено, что нужно проверять оператору.</li>
+                <li>Построение постпроцессора живет отдельно от производственного стандарта.</li>
+              </ul>
+
+              <h2>Что проверять в первую очередь</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Зона</th>
+                    <th>Проверка</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Вывод</td>
+                    <td>Соответствие командам, координатам и логике движения.</td>
+                  </tr>
+                  <tr>
+                    <td>Смена инструмента</td>
+                    <td>Порядок действий, безопасные позиции, комментарии.</td>
+                  </tr>
+                  <tr>
+                    <td>Передача</td>
+                    <td>Документ, по которому можно запускать без угадывания.</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h2>Практический вывод</h2>
+              <p>Постпроцессор - это не «дополнительная настройка», а часть производственного стандарта. Если его логика не совпадает с цехом, придется платить временем за каждую программу.</p>
+            </div>
+          </article>
+
+          <aside class="page-sidebar">
+            <div class="card">
+              <h3>Связанные страницы</h3>
+              <div class="toc">
+                <a href="/services/postprocessors.html">Услуга по постпроцессорам</a>
+                <a href="/cases/case-postprocessor.html">Кейс по постпроцессору</a>
+              </div>
+            </div>
+            <div class="callout">
+              <p>Проверять постпроцессор нужно не по ощущениям, а по контролируемому сценарию запуска.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>CAM CNC Solutions / Максим</p>
+        <p>Независимый инженер-консультант по цифровому производству. <span data-year></span></p>
+      </div>
+    </footer>
+  </div>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

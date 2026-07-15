@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://camcncsolutions.github.io/sitemap.xml
